@@ -1,0 +1,84 @@
+{
+  "name": "meaCtx",
+  "displayName": "meaCtx",
+  "description": "my first extension. For many files context summarization in one file for copilot chat",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "meaCtx.contextStore",
+        "title": "Store Context"
+      },
+      {
+        "command": "meaCtx.contextClear",
+        "title": "Clear Context"
+      },
+      {
+        "command": "meaCtx.ls2File",
+        "title": "list workspace content to file"
+      }
+    ],
+    "configuration": {
+      "title": "Mea - Context Helper",
+      "properties": {
+        "meaCtx.contextFile": {
+        "type": "string",
+        "default": "context.md",
+        "description": "context markdown file"
+        },
+        "meaCtx.terminalOut": {
+        "type": "string",
+        "default": "terminalOut.txt",
+        "description": "output terminalu output file"
+        }
+      }
+    },
+    "keybindings":[
+      {
+        "command": "meaCtx.contextStore",
+        "key": "ctrl+shift+3",
+        "mac": "cmd+shift+3",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "meaCtx.contextClear",
+        "key": "ctrl+shift+4",
+        "mac": "cmd+shift+4"
+      },
+      {
+        "command": "meaCtx.ls2File",
+        "key": "ctrl+shift+7",
+        "mac": "cmd+shift+7"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.78.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4",
+    "@vscode/test-electron": "^2.3.0"
+  }
+}
