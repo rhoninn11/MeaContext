@@ -3,6 +3,10 @@
   "displayName": "meaCtx",
   "description": "my first extension. For many files context summarization in one file for copilot chat",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rhoninn11/MeaContext.git"
+  },
   "engines": {
     "vscode": "^1.78.0"
   },
